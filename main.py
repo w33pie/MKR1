@@ -22,3 +22,8 @@ def process_population_data(input_path: str, output_path: str) -> None:
     changed_data = calculate_population_change(data)
     write_changes_to_file(changed_data, output_path)
     print(f"Data processed and written to {output_path}")
+
+input_file: str = input("Please enter the path to the input data file: ")
+output_file: str = input("Please enter the path to the output data file: ")
+
+process_population_data(input_file, output_file)
