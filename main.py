@@ -15,3 +15,10 @@ def calculate_population_change(data: DataFrame) -> DataFrame:
 def write_changes_to_file(data: DataFrame, output_path: str) -> None:
     """Запис змінених даних у новий файл."""
     data.to_csv(output_path, index=False)
+
+def process_population_data(input_path: str, output_path: str) -> None:
+    """Основна функція для обробки даних про населення."""
+    data = read_population_data(input_path)
+    changed_data = calculate_population_change(data)
+    write_changes_to_file(changed_data, output_path)
+    print(f"Data processed and written to {output_path}")
