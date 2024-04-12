@@ -11,3 +11,7 @@ def calculate_population_change(data: DataFrame) -> DataFrame:
     grouped: DataFrame = data.sort_values(by=['Country', 'Year'])
     grouped['Population Change'] = grouped.groupby('Country')['Population'].diff().fillna(0)
     return grouped
+
+def write_changes_to_file(data: DataFrame, output_path: str) -> None:
+    """Запис змінених даних у новий файл."""
+    data.to_csv(output_path, index=False)
